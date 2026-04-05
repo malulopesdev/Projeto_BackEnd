@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos Sustentáveis</title>
+    <style>
+        :root {
+            --primary: #2d5a27; 
+            --secondary: #f4f7f6;
+            --text: #333;
+            --danger: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary);
+            color: var(--text);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 20px; }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .nav-buttons { margin-bottom: 20px; display: flex; gap: 10px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { background: var(--primary); color: white; padding: 15px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-new { background: var(--primary); color: white; }
+        .btn-home { background: #2d5a27; color: white; }
+        .btn-edit { background: #f4f7f6; color: black; margin-right: 5px; }
+        .btn-delete { background: var(--danger); color: white; }
+
+        .btn:hover { opacity: 0.8; transform: translateY(-1px); }
+
+        .actions { display: flex; align-items: center; }
+    </style>
+</head>
+<body>
+
+    <h1>PRODUTOS SUSTENTÁVEIS</h1>
+
+    <div class="container">
+        <div class="nav-buttons">
+            <a href="/produtos/novo" class="btn btn-new">Cadastrar Novo Produto</a>
+            <a href="/" class="btn btn-home">Home</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Fornecedor</th>
+                    <th style="text-align: center;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% produtos.forEach(produto => { %>
+                    <tr>
+                        <td><%= produto.nome %></td>
+                        <td>R$ <%= produto.preco %></td>
+                        <td><%= produto.fornecedor %></td>
+                        <td class="actions">
+                            <a href="/produtos/editar/<%= produto.id_produto %>" class="btn btn-edit">Editar</a>
+
+                            <form action="/produtos/deletar/<%= produto.id_produto %>" method="POST" onsubmit="return confirm('Deseja mesmo excluir este produto?')">
+                                <button type="submit" class="btn btn-delete">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

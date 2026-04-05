@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Home</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #f4f7f6;
+            --accent: #dab655;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .logo-av1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-button:hover {
+            background-color: #1e3d1a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .nav-button.secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CADASTRO DE PRODUTO SUSTENTÁVEIS</h1>
+
+        <div class="menu-grid">
+            <a href="/produtos" class="nav-button">
+                Ver Todos os Produtos
+            </a>
+            
+            <a href="/produtos/novo" class="nav-button">
+                Cadastrar Novo Produto
+            </a>
+
+            <a href="/sobre" class="nav-button secondary">
+                Sobre o Projeto
+            </a>
+        </div>
+
+        <footer>
+            Desenvolvido por Dafny Karolyne, Gabriela Guedes, Raissa Licar, Maria Luiza Lopes, Maria Maezia. &copy; 2026
+        </footer>
+    </div>
+
+</body>
+</html>
